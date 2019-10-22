@@ -5,9 +5,19 @@
 using std::unique_ptr;
 using std::vector;
 
-vector<int> InorderTraversal(const unique_ptr<BinaryTreeNode<int>>& tree) {
-  // TODO - you fill in here.
-  return {};
+void BuildInorderedTraversal(const unique_ptr<BinaryTreeNode<int>> &tree, vector<int>& result) {
+    if (!tree) {
+        return;
+    }
+    BuildInorderedTraversal(tree->left, result);
+    result.push_back(tree->data);
+    BuildInorderedTraversal(tree->right, result);
+}
+
+vector<int> InorderTraversal(const unique_ptr<BinaryTreeNode<int>> &tree) {
+    vector<int> result;
+    BuildInorderedTraversal(tree, result);
+    return result;
 }
 
 int main(int argc, char* argv[]) {

@@ -3,8 +3,7 @@
 #include "test_framework/generic_test.h"
 using std::shared_ptr;
 
-shared_ptr<ListNode<int>> ZippingLinkedList(
-    const shared_ptr<ListNode<int>>& L) {
+shared_ptr<ListNode<int>> ZippingLinkedList(const shared_ptr<ListNode<int>>& L) {
   // TODO - you fill in here.
   return nullptr;
 }
