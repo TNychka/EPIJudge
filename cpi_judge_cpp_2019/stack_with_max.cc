@@ -5,24 +5,35 @@
 using std::length_error;
 
 class Stack {
- public:
+private:
+std::vector<int> data;
+
+public:
   bool Empty() const {
-    // TODO - you fill in here.
-    return true;
+    return data.empty();
   }
+
   int Max() const {
-    // TODO - you fill in here.
-    return 0;
+      int max = data.at(0);
+      for (int i : data) {
+          if (i > max) {
+            max = i;
+          }
+      }
+      return max;
   }
+
   int Pop() {
-    // TODO - you fill in here.
-    return 0;
+    int val = data.back();
+    data.pop_back();
+    return val;
   }
+
   void Push(int x) {
-    // TODO - you fill in here.
-    return;
+      data.emplace_back(x);
   }
 };
+
 struct StackOp {
   std::string op;
   int argument;

@@ -2,9 +2,22 @@
 #include "test_framework/generic_test.h"
 using std::vector;
 
+vector<vector<int>> AppendPermutations(vector<int> A, int i = 0) {
+    if (i > A.size()) {
+        return vector<vector<int>>();
+    }
+    int mixin = A.at(i);
+    vector<vector<int>> permutations = AppendPermutations(A, i+1);
+    vector<vector<int>> results;
+    for (vector<int> v : permutations) {
+        for (int j = i; j < A.size(); ++j) {
+
+        }
+    }
+}
+
 vector<vector<int>> Permutations(vector<int> A) {
-  // TODO - you fill in here.
-  return {};
+    return AppendPermutations(A);
 }
 
 int main(int argc, char* argv[]) {
