@@ -9,10 +9,25 @@ using std::array;
 using std::stack;
 using std::vector;
 const int kNumPegs = 3;
-vector<vector<int>> ComputeTowerHanoi(int num_rings) {
-  // TODO - you fill in here.
-  return {};
+
+void ComputeTowerHanoiTargeted(int num_rings, int source, int dest, vector<vector<int>>& results) {
+    if (num_rings == 0) {
+        return;
+    } else if (num_rings == 1) {
+        results.emplace_back(vector<int>{source, dest});
+    } else {
+        ComputeTowerHanoiTargeted(num_rings - 1, source, 3 - source - dest, results); // Build on the empty place
+        results.emplace_back(vector<int>{source, dest});
+        ComputeTowerHanoiTargeted(num_rings - 1, 3 - source - dest, dest, results); // Build on the empty place
+    }
 }
+
+vector<vector<int>> ComputeTowerHanoi(int num_rings) {
+    vector<vector<int>> results;
+    ComputeTowerHanoiTargeted(num_rings, 0, 1, results);
+    return results;
+}
+
 void ComputeTowerHanoiWrapper(TimedExecutor& executor, int num_rings) {
   array<stack<int>, kNumPegs> pegs;
   for (int i = num_rings; i >= 1; --i) {
