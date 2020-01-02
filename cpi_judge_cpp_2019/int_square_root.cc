@@ -1,8 +1,8 @@
 #include "test_framework/generic_test.h"
 
 int SquareRoot(int k) {
-  // TODO - you fill in here.
-  return 0;
+
+    return 0;
 }
 
 int main(int argc, char* argv[]) {

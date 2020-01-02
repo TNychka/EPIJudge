@@ -48,4 +48,4 @@ int main(int argc, char* argv[]) {
   return GenericTestMain(args, "is_array_dominated.cc",
                          "is_array_dominated.tsv", &ValidPlacementExistsWrapper,
                          DefaultComparator{}, param_names);
-}
+how
